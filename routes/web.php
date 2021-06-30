@@ -1,9 +1,10 @@
 <?php
 
+use Illuminate\Htpp\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
-use Illuminate\Htpp\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,15 +17,15 @@ use Illuminate\Htpp\Request;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+ Route::get('/', function () {
+     return view('welcome');
+ });
 
 Auth::routes();
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //Route::resource('/cucian', CucianController::class);
-Route::get('/', [DashboardController::class, 'index']);
+//Route::get('/', [DashboardController::class, 'index']);
 Route::get('/dashboard', [DashboardController::class, 'index']);
 Route::get('/dashboard/create', [DashboardController::class, 'create']);
 Route::get('/dashboard/{dashboard}', [DashboardController::class, 'show']);

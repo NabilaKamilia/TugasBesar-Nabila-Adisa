@@ -38,7 +38,7 @@
             @error('harga') <div class="invalid-feedback">{{$message}}</div> @enderror
         </div>
         <div class="form-group">
-            <label for="jenis_mobil">Jenis Mobil</label>
+            <label for="jenis_mobil">Status</label>
             <select name="jenis_mobil" id="jenis_mobil" class="form-control">
             <option>Sedang Dicuci</option>            
             <option selected>Sudah Dicuci</option>            

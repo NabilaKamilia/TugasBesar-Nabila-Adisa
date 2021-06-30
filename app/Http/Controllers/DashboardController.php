@@ -15,17 +15,20 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    
+
     public function index(Request $request)
     {
         // $dashboards = Dashboard::all();
         //Eloquent untuk menampilkan data resep, dengan atau tanpa search
         $dashboards = Dashboard::where([
-            ['plat_nomor', '!=', null, 'OR', 'nama_pemilik', '!=', null, 'OR', 'layanan', '!=', null ], //ketika form search kosong, maka request akan null. Ambil semua data di database
+            ['plat_nomor', '!=', null, 'OR', 'nama_pemilik', '!=', null ], //ketika form search kosong, maka request akan null. Ambil semua data di database
             [function ($query) use ($request) {
                 if (($keyword = $request->keyword)) {
                     $query->orWhere('plat_nomor', 'LIKE', '%' . $keyword . '%')
                         ->orWhere('nama_pemilik', 'LIKE', '%' . $keyword . '%')
-                        ->orWhere('layanan', 'LIKE', '%' . $keyword . '%')->get(); //ketika form search terisi, request tidak null. Ambil data sesuai keyword
+                        ->get(); //ketika form search terisi, request tidak null. Ambil data sesuai keyword
                 }
             }]
         ])
@@ -144,6 +147,9 @@ class DashboardController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    
+
     public function destroy(Dashboard $dashboard)
     {
         Dashboard::destroy($dashboard->id);

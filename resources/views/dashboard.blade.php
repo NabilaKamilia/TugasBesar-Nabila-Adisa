@@ -34,17 +34,18 @@
         <p>{{$message}}</p>
     </div>
     @endif
-    <div class="col-md-10">
+    <div class="col-10">
 
     <!-- Untuk Menampilkan List Data Tabel Resep -->
     <table class="table table-bordered">
         <tr>
-            <th>Plat Nomor</th>
+            <th width="250px">Plat Nomor</th>
             <th>Nama Pemilik</th>
             <th>Jenis Mobil</th>
             <th>Harga</th>
             <th>Status</th>
             <th width="280px">Action</th>
+            
         </tr>
         @foreach($dashboards as $dashboard)
         <tr>
